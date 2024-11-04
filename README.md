@@ -1,2 +1,1 @@
-# Shopping-Cart
-Mock shopping cart, built with ReactJS
+# Mock Shopping Cart
