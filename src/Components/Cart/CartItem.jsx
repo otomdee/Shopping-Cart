@@ -1,4 +1,6 @@
-export default function CartItem({cartObj}) {
+export default function CartItem({cartObj, handleCartDelete}) {
+
+    console.log(cartObj.id);
 
     return (
         <div className="cart-item">
@@ -6,7 +8,7 @@ export default function CartItem({cartObj}) {
             <span className="cart-item-name">{cartObj.title}</span>
             <span className="cart-item-amount">{"x" + cartObj.quantity}</span>
             <span className="cart-item-price">{"$" + (cartObj.price * cartObj.quantity)}</span>
-            <button className="remove-item">X</button>
+            <button className="remove-item" onClick={() => handleCartDelete(cartObj.id)}>X</button>
         </div>
     )
 }

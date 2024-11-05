@@ -25,6 +25,16 @@ function App() {
     setCartItems(newItems);
   }
 
+  function handleCartDelete(id) {
+    let newItems = [...cartItems];
+
+    newItems = newItems.filter((item) => {
+      return item.id !== id
+    })
+
+    setCartItems(newItems);
+  }
+
   return (
     <div>
       < NavBar />
@@ -44,7 +54,7 @@ function App() {
         </Route>
       </Route>
       <Route path='about' element={<About />} />
-      <Route path='cart' element={<Cart cartItems={cartItems} />} />
+      <Route path='cart' element={<Cart cartItems={cartItems} handleCartDelete={handleCartDelete}/>} />
       <Route path='*' element={<NoMatch />}></Route>
     </Routes>
     </div>
