@@ -35,6 +35,7 @@ export default function Shop({handleCardChange}) {
                     data && data.map(item => {
                         return <Card
                                 key={item.id}
+                                id={item.id}
                                 url={item.image}
                                 alt={item.title}
                                 price={item.price}

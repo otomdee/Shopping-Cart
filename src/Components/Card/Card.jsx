@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 
-export default function Card({url, alt, price, desc, handleCardChange}) {
+export default function Card({id, url, alt, price, desc, handleCardChange}) {
 
     const itemObj = {
+        id: id,
         url: url,
         desc: desc,
         title: alt,

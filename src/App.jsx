@@ -12,11 +12,18 @@ import ShopIndex from './Components/ShopIndex/ShopIndex.jsx'
 
 function App() {
   const [cardInfo, setCardInfo] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
 
   function handleCardChange(info) {
     setCardInfo(info);
   }
 
+  function handleCartChange(idObj) {
+    let newItems = [...cartItems];
+
+    newItems.push(idObj);
+    setCartItems(newItems);
+  }
 
   return (
     <div>
@@ -25,17 +32,19 @@ function App() {
       <Route path='/' element={<Homepage />} />
       <Route path='shop' element={<Shop />} >
         <Route index element={< ShopIndex handleCardChange={handleCardChange}/>} />
-        <Route path='item' element={cardInfo && <CardFull 
+        <Route path='item' element={cardInfo && <CardFull
+                          id={cardInfo.id} 
                           url={cardInfo.url}
                           desc={cardInfo.desc}
                           title={cardInfo.title}
                           price={cardInfo.price}
+                          handleCartChange={handleCartChange}
                           />}>
 
         </Route>
       </Route>
       <Route path='about' element={<About />} />
-      <Route path='cart' element={<Cart />} />
+      <Route path='cart' element={<Cart cartItems={cartItems} />} />
       <Route path='*' element={<NoMatch />}></Route>
     </Routes>
     </div>

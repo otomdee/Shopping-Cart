@@ -1,4 +1,21 @@
-export default function CardFull({url, desc, title, price}) {
+import { useState } from "react"
+
+export default function CardFull({id, url, desc, title, price, handleCartChange}) {
+
+    const [quantity, setQuantity] = useState(1);
+
+    function handleItemSubmit() {
+        const cartObj = {
+            id: id,
+            url: url,
+            title: title,
+            quantity: quantity,
+            price: price,
+        };
+
+        handleCartChange(cartObj);
+    }
+
     return (
         <div className="card-full">
             <img src={url} alt={title} />
@@ -6,11 +23,17 @@ export default function CardFull({url, desc, title, price}) {
             <span>{desc}</span>
             <span>{price}</span>
             <div className="item-amount">
-                <button className="reduce-amount">-</button>
-                <input type="number" />
-                <button className="increase-amount">+</button>
+                <button onClick={ () => {
+                    quantity > 1 && setQuantity(quantity - 1)
+                }
+                } className="reduce-amount">-</button>
+                <span>{quantity}</span>
+                <button onClick={ () => {
+                    setQuantity(quantity + 1)
+                }
+                } className="increase-amount">+</button>
             </div>
-            <button>add to cart</button>
+            <button onClick={() => handleItemSubmit()}>add to cart</button>
         </div>
     )
 }
