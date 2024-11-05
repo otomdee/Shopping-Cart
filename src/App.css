@@ -9,3 +9,18 @@ nav a.active {
   font-weight: bold;
   text-decoration: none;
 }
+
+.shop-container {
+  display: flex;
+}
+
+.cardItem {
+  height: 400px;
+  width: 300px;
+}
+
+.cardItem img {
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+}
