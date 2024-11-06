@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import PropTypes from "prop-types";
 
-export default function Shop({handleCardChange}) {
+export default function ShopIndex({handleCardChange}) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -47,4 +48,8 @@ export default function Shop({handleCardChange}) {
             </div>
         </div>
     )
+}
+
+ShopIndex.propTypes = {
+    handleCardChange : PropTypes.func,
 }

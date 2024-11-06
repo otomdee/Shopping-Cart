@@ -20,8 +20,17 @@ function App() {
 
   function handleCartChange(idObj) {
     let newItems = [...cartItems];
+    //check if item is already in cart
+    let includes = false;
+    newItems.forEach((item) => {
+      if (item.id === idObj.id) {
+        includes = true;
+        item.quantity += idObj.quantity
+      }
+    })
 
-    newItems.push(idObj);
+    includes ? null : newItems.push(idObj);
+
     setCartItems(newItems);
   }
 

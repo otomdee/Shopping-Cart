@@ -1,4 +1,6 @@
 import CartItem from "./CartItem";
+import PropTypes from 'prop-types';
+
 
 export default function Cart({ cartItems, handleCartDelete }) {
         let subtotal = 0;
@@ -24,4 +26,9 @@ export default function Cart({ cartItems, handleCartDelete }) {
             </div>
         </div>
     )
+}
+
+Cart.propTypes = {
+    cartItems: PropTypes.array,
+    handleCartDelete : PropTypes.func,
 }

@@ -1,6 +1,6 @@
-export default function CartItem({cartObj, handleCartDelete}) {
+import PropTypes from "prop-types";
 
-    console.log(cartObj.id);
+export default function CartItem({cartObj, handleCartDelete}) {
 
     return (
         <div className="cart-item">
@@ -11,4 +11,9 @@ export default function CartItem({cartObj, handleCartDelete}) {
             <button className="remove-item" onClick={() => handleCartDelete(cartObj.id)}>X</button>
         </div>
     )
+}
+
+CartItem.propTypes = {
+    cartObj : PropTypes.object,
+    handleCartDelete : PropTypes.func,
 }

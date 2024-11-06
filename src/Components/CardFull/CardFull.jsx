@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PropTypes from "prop-types";
 
 export default function CardFull({id, url, desc, title, price, handleCartChange}) {
 
@@ -36,4 +37,13 @@ export default function CardFull({id, url, desc, title, price, handleCartChange}
             <button onClick={() => handleItemSubmit()}>add to cart</button>
         </div>
     )
+}
+
+CardFull.propTypes = {
+    id: PropTypes.string,
+    url: PropTypes.string,
+    desc: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    handleCartChange: PropTypes.func,
 }
